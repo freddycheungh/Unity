@@ -15,8 +15,8 @@ public class EnemyAttack : MonoBehaviour {
 
     void Awake () {
 
-        player = GameObject.FindGameObjectWithTag ("Player");
-        playerHealth = player.GetComponent <PlayerHealth> ();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerHealth = player.GetComponent <PlayerHealth>();
         enemyHealth = GetComponent<EnemyHealth>();
         anim = GetComponent <Animator> ();
 
@@ -48,13 +48,13 @@ public class EnemyAttack : MonoBehaviour {
 
         if(timer >= timeBetweenAttacks && playerInRange && enemyHealth.currentHealth > 0) {
 
-            Attack ();
+            Attack();
 
         }
 
         if(playerHealth.currentHealth <= 0) {
 
-            anim.SetTrigger ("PlayerDead");
+            anim.SetTrigger("PlayerDead");
 
         }
 
@@ -66,7 +66,7 @@ public class EnemyAttack : MonoBehaviour {
 
         if(playerHealth.currentHealth > 0) {
 
-            playerHealth.TakeDamage (attackDamage);
+            playerHealth.TakeDamage(attackDamage);
 
         }
 

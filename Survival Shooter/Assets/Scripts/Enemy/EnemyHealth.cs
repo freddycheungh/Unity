@@ -21,7 +21,6 @@ public class EnemyHealth : MonoBehaviour {
         enemyAudio = GetComponent <AudioSource> ();
         hitParticles = GetComponentInChildren <ParticleSystem> ();
         capsuleCollider = GetComponent <CapsuleCollider> ();
-
         currentHealth = startingHealth;
 
     }
@@ -78,7 +77,7 @@ public class EnemyHealth : MonoBehaviour {
         // .isKinematic = true -> avoids geometry recalculations
         GetComponent <Rigidbody>().isKinematic = true;
         isSinking = true;
-        //ScoreManager.score += scoreValue;
+        ScoreManager.score += scoreValue;
         Destroy(gameObject, 2f);
 
     }

@@ -12,7 +12,6 @@ public class PlayerHealth : MonoBehaviour {
     public AudioClip deathClip;
     public float flashSpeed = 5f;
     public Color flashColour = new Color(1f, 0f, 0f, 0.1f);
-
     public Text healthText;
 
     Animator anim;
@@ -54,7 +53,7 @@ public class PlayerHealth : MonoBehaviour {
         damaged = true;
         currentHealth -= amount;
         //healthSlider.value = currentHealth;
-        healthText.text = currentHealth.ToString();
+        healthText.text = currentHealth < 0 ? "0" : currentHealth.ToString();
         healthText.color = (currentHealth <= 70 && currentHealth > 30) ? new Color(1f, 0.6f, 0f) : (currentHealth <= 30 ? Color.red : new Color(0f, 1f, 0f));
         playerAudio.Play();
 
@@ -84,7 +83,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public void RestartLevel () {
 
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
 
